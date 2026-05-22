@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Python Programming Concepts</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b,#020617);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Animated Background */
+body::before{
+    content:'';
+    position:fixed;
+    width:300px;
+    height:300px;
+    background:#38bdf8;
+    border-radius:50%;
+    filter:blur(120px);
+    top:-100px;
+    left:-100px;
+    animation:float1 8s infinite alternate;
+    z-index:-1;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:350px;
+    height:350px;
+    background:#8b5cf6;
+    border-radius:50%;
+    filter:blur(130px);
+    bottom:-120px;
+    right:-120px;
+    animation:float2 10s infinite alternate;
+    z-index:-1;
+}
+
+@keyframes float1{
+    from{transform:translateY(0px);}
+    to{transform:translateY(80px);}
+}
+
+@keyframes float2{
+    from{transform:translateX(0px);}
+    to{transform:translateX(-80px);}
+}
+
+header{
+    text-align:center;
+    padding:60px 20px 30px;
+    animation:fadeDown 1s ease;
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:15px;
+    background:linear-gradient(to right,#38bdf8,#a855f7);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+header p{
+    color:#cbd5e1;
+    font-size:1.1rem;
+}
+
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:20px 0 60px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:25px;
+    transition:0.4s ease;
+    position:relative;
+    overflow:hidden;
+    animation:fadeUp 1s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 15px 35px rgba(0,0,0,0.4);
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+    top:-40px;
+    right:-40px;
+}
+
+.card h2{
+    font-size:1.4rem;
+    margin-bottom:15px;
+    color:#38bdf8;
+}
+
+.card ul{
+    padding-left:18px;
+}
+
+.card ul li{
+    margin-bottom:8px;
+    color:#e2e8f0;
+    line-height:1.5;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#94a3b8;
+    font-size:0.9rem;
+}
+
+/* Floating Animation */
+.floating{
+    animation:floating 3s ease-in-out infinite;
+}
+
+@keyframes floating{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1 class="floating">Python Programming Concepts</h1>
+    <p>Interactive Learning Roadmap for Python Beginners</p>
+</header>
+
+<div class="container">
+
+    <div class="grid">
+
+        <div class="card">
+            <h2>1. Language Processing Systems</h2>
+            <ul>
+                <li>Compiler</li>
+                <li>Interpreter</li>
+                <li>Assembler</li>
+                <li>Compiler vs Interpreter</li>
+                <li>Python Execution Process</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>2. What is Python</h2>
+            <ul>
+                <li>Introduction to Python</li>
+                <li>Features of Python</li>
+                <li>Applications</li>
+                <li>Advantages</li>
+                <li>First Python Program</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>3. Data Types</h2>
+            <ul>
+                <li>Integer</li>
+                <li>Float</li>
+                <li>Complex</li>
+                <li>Boolean</li>
+                <li>List, Tuple, Set, Dictionary</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>4. Strings & Functions</h2>
+            <ul>
+                <li>String Indexing</li>
+                <li>Slicing</li>
+                <li>String Methods</li>
+                <li>Formatting</li>
+                <li>Escape Characters</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>5. Operators</h2>
+            <ul>
+                <li>Arithmetic</li>
+                <li>Logical</li>
+                <li>Comparison</li>
+                <li>Assignment</li>
+                <li>Bitwise Operators</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>6. Type Conversion</h2>
+            <ul>
+                <li>Implicit Conversion</li>
+                <li>Explicit Conversion</li>
+                <li>int()</li>
+                <li>float()</li>
+                <li>str()</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>7. Control Statements</h2>
+            <ul>
+                <li>for Loop</li>
+                <li>while Loop</li>
+                <li>break</li>
+                <li>continue</li>
+                <li>Nested Loops</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>8. Conditional Statements</h2>
+            <ul>
+                <li>if Statement</li>
+                <li>if-else</li>
+                <li>if-elif-else</li>
+                <li>Nested if</li>
+                <li>Short-hand Conditions</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>9. Lists & Dictionary</h2>
+            <ul>
+                <li>List Operations</li>
+                <li>List Comprehension</li>
+                <li>Dictionary Methods</li>
+                <li>Accessing Data</li>
+                <li>Updating Values</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>10. Functions</h2>
+            <ul>
+                <li>Defining Functions</li>
+                <li>Arguments</li>
+                <li>Return Values</li>
+                <li>Lambda Functions</li>
+                <li>Recursion</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>11. File Operations</h2>
+            <ul>
+                <li>Opening Files</li>
+                <li>Reading Files</li>
+                <li>Writing Files</li>
+                <li>Appending Data</li>
+                <li>with open()</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>12. Errors & Exceptions</h2>
+            <ul>
+                <li>Syntax Errors</li>
+                <li>Runtime Errors</li>
+                <li>try-except</li>
+                <li>finally Block</li>
+                <li>User-defined Exceptions</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    Python Learning Roadmap © 2026
+</footer>
+
+</body>
+</html>
