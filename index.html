@@ -1,340 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Python Programming Concepts</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Basics Roadmap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:linear-gradient(135deg,#0f172a,#1e293b,#020617);
-    color:white;
-    overflow-x:hidden;
-}
-
-/* Animated Background */
-body::before{
-    content:'';
-    position:fixed;
-    width:300px;
-    height:300px;
-    background:#38bdf8;
-    border-radius:50%;
-    filter:blur(120px);
-    top:-100px;
-    left:-100px;
-    animation:float1 8s infinite alternate;
-    z-index:-1;
-}
-
-body::after{
-    content:'';
-    position:fixed;
-    width:350px;
-    height:350px;
-    background:#8b5cf6;
-    border-radius:50%;
-    filter:blur(130px);
-    bottom:-120px;
-    right:-120px;
-    animation:float2 10s infinite alternate;
-    z-index:-1;
-}
-
-@keyframes float1{
-    from{transform:translateY(0px);}
-    to{transform:translateY(80px);}
-}
-
-@keyframes float2{
-    from{transform:translateX(0px);}
-    to{transform:translateX(-80px);}
-}
-
-header{
-    text-align:center;
-    padding:60px 20px 30px;
-    animation:fadeDown 1s ease;
-}
-
-header h1{
-    font-size:3rem;
-    margin-bottom:15px;
-    background:linear-gradient(to right,#38bdf8,#a855f7);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-header p{
-    color:#cbd5e1;
-    font-size:1.1rem;
-}
-
-@keyframes fadeDown{
-    from{
-        opacity:0;
-        transform:translateY(-40px);
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
+      color: white;
+      overflow-x: hidden;
     }
-}
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    padding:20px 0 60px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.1);
-    backdrop-filter:blur(10px);
-    border-radius:20px;
-    padding:25px;
-    transition:0.4s ease;
-    position:relative;
-    overflow:hidden;
-    animation:fadeUp 1s ease;
-}
-
-.card:hover{
-    transform:translateY(-10px) scale(1.02);
-    box-shadow:0 15px 35px rgba(0,0,0,0.4);
-}
-
-.card::before{
-    content:'';
-    position:absolute;
-    width:120px;
-    height:120px;
-    background:rgba(255,255,255,0.08);
-    border-radius:50%;
-    top:-40px;
-    right:-40px;
-}
-
-.card h2{
-    font-size:1.4rem;
-    margin-bottom:15px;
-    color:#38bdf8;
-}
-
-.card ul{
-    padding-left:18px;
-}
-
-.card ul li{
-    margin-bottom:8px;
-    color:#e2e8f0;
-    line-height:1.5;
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
+    .hero {
+      min-height: 45vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
 
-footer{
-    text-align:center;
-    padding:30px;
-    color:#94a3b8;
-    font-size:0.9rem;
-}
-
-/* Floating Animation */
-.floating{
-    animation:floating 3s ease-in-out infinite;
-}
-
-@keyframes floating{
-    0%{
-        transform:translateY(0px);
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      background: rgba(59, 130, 246, 0.15);
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: float 6s ease-in-out infinite;
+      top: 10%;
+      left: 10%;
     }
-    50%{
-        transform:translateY(-8px);
-    }
-    100%{
-        transform:translateY(0px);
-    }
-}
 
-</style>
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: rgba(168, 85, 247, 0.15);
+      border-radius: 50%;
+      filter: blur(70px);
+      animation: float2 7s ease-in-out infinite;
+      bottom: 0;
+      right: 10%;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      z-index: 2;
+      animation: fadeDown 1s ease;
+    }
+
+    .subtitle {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      max-width: 700px;
+      z-index: 2;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding-bottom: 60px;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 25px;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+      animation: fadeCard 1s ease forwards;
+      opacity: 0;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+    .card:nth-child(6) { animation-delay: 0.6s; }
+    .card:nth-child(7) { animation-delay: 0.7s; }
+    .card:nth-child(8) { animation-delay: 0.8s; }
+    .card:nth-child(9) { animation-delay: 0.9s; }
+    .card:nth-child(10) { animation-delay: 1s; }
+    .card:nth-child(11) { animation-delay: 1.1s; }
+    .card:nth-child(12) { animation-delay: 1.2s; }
+    .card:nth-child(13) { animation-delay: 1.3s; }
+    .card:nth-child(14) { animation-delay: 1.4s; }
+    .card:nth-child(15) { animation-delay: 1.5s; }
+    .card:nth-child(16) { animation-delay: 1.6s; }
+    .card:nth-child(17) { animation-delay: 1.7s; }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(96, 165, 250, 0.5);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(59, 130, 246, 0.15);
+      border-radius: 50%;
+      top: -30px;
+      right: -30px;
+    }
+
+    .number {
+      font-size: 0.9rem;
+      color: #93c5fd;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      color: #dbeafe;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 40px;
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeCard {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-25px); }
+    }
+
+    @keyframes float2 {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(20px); }
+    }
+
+    @media(max-width:768px){
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-    <h1 class="floating">Python Programming Concepts</h1>
-    <p>Interactive Learning Roadmap for Python Beginners</p>
-</header>
+  <section class="hero">
+    <h1>Python Basics Roadmap</h1>
+    <p class="subtitle">
+      A complete beginner-friendly roadmap covering all fundamental Python concepts in the correct learning order.
+    </p>
+  </section>
 
-<div class="container">
+  <div class="container">
+    <div class="topics-grid">
 
-    <div class="grid">
+      <div class="card">
+        <div class="number">01</div>
+        <h2>Basics of Programming</h2>
+        <ul>
+          <li>What is Programming</li>
+          <li>Compiler vs Interpreter</li>
+          <li>What is Python</li>
+          <li>Features of Python</li>
+          <li>Installing Python</li>
+          <li>First Python Program</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h2>1. Language Processing Systems</h2>
-            <ul>
-                <li>Compiler</li>
-                <li>Interpreter</li>
-                <li>Assembler</li>
-                <li>Compiler vs Interpreter</li>
-                <li>Python Execution Process</li>
-            </ul>
-        </div>
+      <div class="card">
+        <div class="number">02</div>
+        <h2>Input and Output</h2>
+        <ul>
+          <li>print()</li>
+          <li>input()</li>
+          <li>Formatting Output</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h2>2. What is Python</h2>
-            <ul>
-                <li>Introduction to Python</li>
-                <li>Features of Python</li>
-                <li>Applications</li>
-                <li>Advantages</li>
-                <li>First Python Program</li>
-            </ul>
-        </div>
+      <div class="card">
+        <div class="number">03</div>
+        <h2>Variables and Data Types</h2>
+        <ul>
+          <li>Variables</li>
+          <li>Integer</li>
+          <li>Float</li>
+          <li>String</li>
+          <li>Boolean</li>
+          <li>Complex</li>
+          <li>type() Function</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h2>3. Data Types</h2>
-            <ul>
-                <li>Integer</li>
-                <li>Float</li>
-                <li>Complex</li>
-                <li>Boolean</li>
-                <li>List, Tuple, Set, Dictionary</li>
-            </ul>
-        </div>
+      <div class="card">
+        <div class="number">04</div>
+        <h2>Operators</h2>
+        <ul>
+          <li>Arithmetic Operators</li>
+          <li>Assignment Operators</li>
+          <li>Comparison Operators</li>
+          <li>Logical Operators</li>
+          <li>Membership Operators</li>
+          <li>Identity Operators</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h2>4. Strings & Functions</h2>
-            <ul>
-                <li>String Indexing</li>
-                <li>Slicing</li>
-                <li>String Methods</li>
-                <li>Formatting</li>
-                <li>Escape Characters</li>
-            </ul>
-        </div>
+      <div class="card">
+        <div class="number">05</div>
+        <h2>Type Conversion</h2>
+        <ul>
+          <li>Implicit Conversion</li>
+          <li>Explicit Conversion</li>
+          <li>int()</li>
+          <li>float()</li>
+          <li>str()</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h2>5. Operators</h2>
-            <ul>
-                <li>Arithmetic</li>
-                <li>Logical</li>
-                <li>Comparison</li>
-                <li>Assignment</li>
-                <li>Bitwise Operators</li>
-            </ul>
-        </div>
+      <div class="card">
+        <div class="number">06</div>
+        <h2>Strings</h2>
+        <ul>
+          <li>String Creation</li>
+          <li>Indexing</li>
+          <li>Slicing</li>
+          <li>String Methods</li>
+          <li>String Formatting</li>
+          <li>f-Strings</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h2>6. Type Conversion</h2>
-            <ul>
-                <li>Implicit Conversion</li>
-                <li>Explicit Conversion</li>
-                <li>int()</li>
-                <li>float()</li>
-                <li>str()</li>
-            </ul>
-        </div>
+      <div class="card">
+        <div class="number">07</div>
+        <h2>Conditional Statements</h2>
+        <ul>
+          <li>if</li>
+          <li>if-else</li>
+          <li>if-elif-else</li>
+          <li>Nested if</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h2>7. Control Statements</h2>
-            <ul>
-                <li>for Loop</li>
-                <li>while Loop</li>
-                <li>break</li>
-                <li>continue</li>
-                <li>Nested Loops</li>
-            </ul>
-        </div>
+      <div class="card">
+        <div class="number">08</div>
+        <h2>Loops and Control Statements</h2>
+        <ul>
+          <li>for Loop</li>
+          <li>while Loop</li>
+          <li>break</li>
+          <li>continue</li>
+          <li>pass</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h2>8. Conditional Statements</h2>
-            <ul>
-                <li>if Statement</li>
-                <li>if-else</li>
-                <li>if-elif-else</li>
-                <li>Nested if</li>
-                <li>Short-hand Conditions</li>
-            </ul>
-        </div>
+      <div class="card">
+        <div class="number">09</div>
+        <h2>Lists</h2>
+        <ul>
+          <li>Creating Lists</li>
+          <li>Accessing Elements</li>
+          <li>Slicing</li>
+          <li>List Methods</li>
+          <li>Updating Lists</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h2>9. Lists & Dictionary</h2>
-            <ul>
-                <li>List Operations</li>
-                <li>List Comprehension</li>
-                <li>Dictionary Methods</li>
-                <li>Accessing Data</li>
-                <li>Updating Values</li>
-            </ul>
-        </div>
+      <div class="card">
+        <div class="number">10</div>
+        <h2>Tuples</h2>
+        <ul>
+          <li>Creating Tuples</li>
+          <li>Tuple Operations</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h2>10. Functions</h2>
-            <ul>
-                <li>Defining Functions</li>
-                <li>Arguments</li>
-                <li>Return Values</li>
-                <li>Lambda Functions</li>
-                <li>Recursion</li>
-            </ul>
-        </div>
+      <div class="card">
+        <div class="number">11</div>
+        <h2>Sets</h2>
+        <ul>
+          <li>Creating Sets</li>
+          <li>Set Operations</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h2>11. File Operations</h2>
-            <ul>
-                <li>Opening Files</li>
-                <li>Reading Files</li>
-                <li>Writing Files</li>
-                <li>Appending Data</li>
-                <li>with open()</li>
-            </ul>
-        </div>
+      <div class="card">
+        <div class="number">12</div>
+        <h2>Dictionaries</h2>
+        <ul>
+          <li>Creating Dictionaries</li>
+          <li>Accessing Values</li>
+          <li>Dictionary Methods</li>
+          <li>Updating Dictionaries</li>
+        </ul>
+      </div>
 
-        <div class="card">
-            <h2>12. Errors & Exceptions</h2>
-            <ul>
-                <li>Syntax Errors</li>
-                <li>Runtime Errors</li>
-                <li>try-except</li>
-                <li>finally Block</li>
-                <li>User-defined Exceptions</li>
-            </ul>
-        </div>
+      <div class="card">
+        <div class="number">13</div>
+        <h2>List Comprehension</h2>
+        <ul>
+          <li>Basic List Comprehension</li>
+          <li>Conditional List Comprehension</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="number">14</div>
+        <h2>Functions</h2>
+        <ul>
+          <li>Defining Functions</li>
+          <li>Calling Functions</li>
+          <li>Arguments</li>
+          <li>Return Statement</li>
+          <li>Lambda Functions</li>
+          <li>Recursive Functions</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="number">15</div>
+        <h2>Modules</h2>
+        <ul>
+          <li>Importing Modules</li>
+          <li>math Module</li>
+          <li>random Module</li>
+          <li>datetime Module</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="number">16</div>
+        <h2>File Handling</h2>
+        <ul>
+          <li>Opening Files</li>
+          <li>Reading Files</li>
+          <li>Writing Files</li>
+          <li>Appending Files</li>
+          <li>with open()</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="number">17</div>
+        <h2>Exception Handling</h2>
+        <ul>
+          <li>Syntax Errors</li>
+          <li>Runtime Errors</li>
+          <li>try</li>
+          <li>except</li>
+          <li>finally</li>
+          <li>raise</li>
+        </ul>
+      </div>
 
     </div>
+  </div>
 
-</div>
-
-<footer>
-    Python Learning Roadmap © 2026
-</footer>
+  <footer>
+    Python Basics Learning Roadmap • Designed for Beginners
+  </footer>
 
 </body>
 </html>
